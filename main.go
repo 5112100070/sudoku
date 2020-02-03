@@ -17,6 +17,7 @@ func main() {
 		}
 
 		var isValidStr string
+		puzzle.PrintBoard()
 		if puzzle.IsValidSudoku() {
 			isValidStr = "Valid"
 		} else {
