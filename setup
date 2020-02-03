@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo ">> Building SUDOKU Checker"
+temp=$( realpath "$( dirname $0 )"  )
+
+go build -o bin/sudoku
+
+echo ">> Running SUDOKU Checker..."
+./bin/sudoku
+
+echo ">> Finish" 

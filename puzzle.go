@@ -53,7 +53,7 @@ func (p Puzzle) isDigitValid(row, col, digit int) bool {
 			}
 
 			if isFirstData3x3 {
-				fmt.Printf("Wrong data on position %d,%d and %s", startRow+i/3, startCol+i%3, firstDataPos3x3)
+				fmt.Printf("Wrong data on position %d,%d and %s\n", startRow+i/3, startCol+i%3, firstDataPos3x3)
 			}
 
 			return false
