@@ -44,33 +44,33 @@ func (p Puzzle) isDigitValid(row, col, digit int) bool {
 			// check the corresponding 3x3 section
 			p.Board[startRow+i/3][startCol+i%3] == digit) && (isFirstDataH && isFirstDataV && isFirstData3x3) {
 
-			if isFirstDataH {
-				fmt.Printf("Wrong data on position %d,%d and %s\n", row, i, firstDataPosH)
+			if (p.Board[row][i] == digit) && isFirstDataH {
+				fmt.Printf("Wrong data on position %d,%d and %s\n", i+1, row+1, firstDataPosH)
 			}
 
-			if isFirstDataV {
-				fmt.Printf("Wrong data on position %d,%d and %s\n", i, col, firstDataPosV)
+			if (p.Board[i][col] == digit) && isFirstDataV {
+				fmt.Printf("Wrong data on position %d,%d and %s\n", col+1, i+1, firstDataPosV)
 			}
 
-			if isFirstData3x3 {
-				fmt.Printf("Wrong data on position %d,%d and %s\n", startRow+i/3, startCol+i%3, firstDataPos3x3)
+			if (p.Board[startRow+i/3][startCol+i%3] == digit) && isFirstData3x3 {
+				fmt.Printf("Wrong data on position %d,%d and %s\n", (startCol+i%3)+1, (startRow+i/3)+1, firstDataPos3x3)
 			}
 
 			return false
 		}
 
 		if p.Board[row][i] == digit && !isFirstDataH {
-			firstDataPosH = fmt.Sprintf("%d,%d", row, i)
+			firstDataPosH = fmt.Sprintf("%d,%d", i+1, row+1)
 			isFirstDataH = true
 		}
 
 		if p.Board[i][col] == digit && !isFirstDataV {
-			firstDataPosV = fmt.Sprintf("%d,%d", i, col)
+			firstDataPosV = fmt.Sprintf("%d,%d", col+1, i+1)
 			isFirstDataV = true
 		}
 
 		if p.Board[startRow+i/3][startCol+i%3] == digit && !isFirstData3x3 {
-			firstDataPos3x3 = fmt.Sprintf("%d,%d", startRow+i/3, startCol+i%3)
+			firstDataPos3x3 = fmt.Sprintf("%d,%d", (startCol+i%3)+1, (startRow+i/3)+1)
 			isFirstData3x3 = true
 		}
 	}
